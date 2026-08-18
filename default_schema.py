@@ -1,20 +1,3 @@
-"""
-HT_TaxAssessment_Master target schema + the default rule template derived
-directly from Instruction_for_master_data_rtf.doc.
-
-This is a STARTING POINT, not a black box. Two known gaps in the SOP
-itself, both left as 'skip' below with a note rather than guessed:
-
-  - TaxPayerSpouseName: present in the target schema but never mentioned
-    in the instruction doc. Ask whoever wrote the SOP what the rule is.
-  - IsActive: SOP says "derive from source: Active=1, Inactive=0" but
-    doesn't say what to do if the source has no such indicator at all.
-    Defaulted here to constant 1 (assume active) -- this is an assumption,
-    not a documented rule. Flagged with a note; override if wrong.
-
-Everything else below traces directly to a specific line in the SOP.
-"""
-
 from rule_engine import Rule
 
 TARGET_COLUMNS = [
