@@ -19,7 +19,7 @@ from rule_engine import Rule
 
 TARGET_COLUMNS = [
     "Id", "ParentId", "AssessmentType", "AssessmentDate", "HoldingNo",
-    "ClientNo", "Zonelnfold", "IsActive", "InactiveDate",
+    "ClientNo", "ZoneInfold", "IsActive", "InactiveDate",
     "ValuationDuringInactive", "ArrearDuringInactive", "TaxPayerName",
     "AnnualValuation", "TaxOnAnnualValuation", "FinalValuation",
     "TaxOnFinalValuation", "FinalValuationDate", "TotalTaxRates",
@@ -31,7 +31,7 @@ TARGET_COLUMNS = [
     "TaxReviseAttachment", "PreviousHoldingNo", "PreviousClientNo",
     "TaxPayerFatherName", "TaxPayerMotherName", "TaxPayerSpouseName",
     "BillingAddress", "MobileNumber", "NationalID", "EmailAddress",
-    "Images", "Attachment", "WardId", "StreetId", "BankAccountlnfold",
+    "Images", "Attachment", "WardId", "StreetId", "BankAccountInfold",
     "HoldingType", "PropertyUseId", "PropertyTypeId", "TaxPayerTypeId",
     "YearlyRent_OwnersPart", "MonthlyRent_TenantsPart",
     "LandDevelopmentRate", "FullBuildingValue", "YearlyRent_FreeLand",
