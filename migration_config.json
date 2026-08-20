@@ -223,7 +223,7 @@
       "cid_pad_width": 2,
       "cid_separator": "-"
     },
-    "Zonelnfold": {
+    "ZonelnfoId": {
       "type": "batch_id",
       "source_col": null,
       "value": "145",
@@ -958,7 +958,7 @@
       "cid_pad_width": 2,
       "cid_separator": "-"
     },
-    "BankAccountlnfold": {
+    "BankAccountlnfoId": {
       "type": "manual_external",
       "source_col": null,
       "value": null,
