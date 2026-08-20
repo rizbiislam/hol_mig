@@ -81,7 +81,7 @@ def sop_default_rules():
         note="CORRECTED per explicit instruction: ClientNo = ward-street-holding, e.g. '01-01-01'. Each part in English digits, minimum 2 digits (longer numbers like a 3-digit holding no. are NOT truncated, just not padded further). Defaults to reading all three parts straight from source columns (digit-normalized). Set Ward/Holding source columns in Tab 2. Street part currently has no usable source (register's Street column is 0% filled) — will export blank until street data exists or you switch that part to lookup_code mode once StreetId is resolved.",
     )
     batch("ZonelnfoId", note="SOP: one fixed Id per pourashava from the 'ZoneInfoId' reference file. CONFIRMED for Durgapur = 145 (cross-checked from both Durgapur-Ward.xlsx and Durgapur-Street.xlsx, ZoneInfoId column is 145 on every row of both). Pre-filled, but verify it's still current before shipping.")
-    r["Zonelnfold"].value = "145"
+    r["ZonelnfoId"].value = "145"
     copy_def("IsActive", "1", note="ASSUMPTION, not explicitly in SOP for the no-source-indicator case: SOP says Active=1/Inactive=0 from source, but if your source has no active/inactive column, this defaults everyone to 1 (active). Override if your source data does carry that signal.")
     skip("InactiveDate")
     skip("ValuationDuringInactive")
