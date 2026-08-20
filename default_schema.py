@@ -14,7 +14,7 @@ TARGET_COLUMNS = [
     "TaxReviseAttachment", "PreviousHoldingNo", "PreviousClientNo",
     "TaxPayerFatherName", "TaxPayerMotherName", "TaxPayerSpouseName",
     "BillingAddress", "MobileNumber", "NationalID", "EmailAddress",
-    "Images", "Attachment", "WardId", "StreetId", "BankAccountInfold",
+    "Images", "Attachment", "WardId", "StreetId", "BankAccountInfoId",
     "HoldingType", "PropertyUseId", "PropertyTypeId", "TaxPayerTypeId",
     "YearlyRent_OwnersPart", "MonthlyRent_TenantsPart",
     "LandDevelopmentRate", "FullBuildingValue", "YearlyRent_FreeLand",
@@ -116,7 +116,7 @@ def sop_default_rules():
     skip("Attachment")
     lookup("WardId", note="SOP: per-pourashava Ward Id reference file, per-row match required. Durgapur-Ward.xlsx provided: 9 wards, Id range 867-875, Name = ward number (1-9) as plain digits. WARNING: the source register's Ward No. column is genuinely messy — mixes English digits ('1','8'), Bengali digits ('০৪','০৯','০২','৩','০৬','০৭','০১'), and at least one malformed hybrid ('০6'). Use the 'normalize Bengali digits' toggle in Tab 3 to auto-resolve most of these, then manually check the rest (the '০6'-style entries are likely typos and need a human judgment call, not an automated guess).")
     lookup("StreetId", note="UPDATED: originally flagged manual_external per the SOP's multi-step PRM_Street DB process, but Durgapur-Street.xlsx (22 rows, ZoneInfoId=145, already filtered for this pourashava) is exactly the output that process produces — so this can now be resolved as a normal per-row lookup instead of requiring you to repeat that DB round-trip. Two caveats: (1) the source register's own 'Street' column is 0% filled across all 4508 rows — there is currently nothing to map FROM, so this stays unresolved regardless of the lookup table's readiness, unless street names get extracted from elsewhere (see StreetId-in-PropertyUse note below). (2) the street name 'ঝুপদোয়ার' appears twice in the lookup table under two different Ids (37077 and 37094) — if you ever do get per-row street text, a name match alone can be ambiguous for that one street; you'll need extra context (which sub-area) to pick the right Id.")
-    manual("BankAccountInfold", note="SOP: create Bank records in the live system from source info, then query the DB for the generated Id. Some pourashavas already have bank info pre-created — check before creating duplicates. Map a source column here only once you have the resolved Ids.")
+    manual("BankAccountInfoId", note="SOP: create Bank records in the live system from source info, then query the DB for the generated Id. Some pourashavas already have bank info pre-created — check before creating duplicates. Map a source column here only once you have the resolved Ids.")
     copy_def("HoldingType", "3", note="SOP: defaults to 3 (অবানিজ্যিক / non-commercial) ONLY when source has no holding-type data. If your source data does carry this, map it as the source column instead of relying on the default.")
     lookup("PropertyUseId", note="SOP: match source text against the PropertyUseId reference file (per-row).")
     lookup("PropertyTypeId", note="SOP: match source text against the PropertyTypeId reference file (per-row).")
